@@ -9,6 +9,12 @@ function App() {
         setText(value)
     }
     
+    function calculateWordCount(text) {
+        const wordsArr = text.split(" ")
+        console.log(wordsArr.length)
+        return wordsArr.length
+    }
+    
     return (
         <div>
             <h1>How fast do you type?</h1>
@@ -17,7 +23,7 @@ function App() {
                 value={text}
             />
             <h4>Time remaining: ???</h4>
-            <button>Start</button>
+            <button onClick={() => calculateWordCount(text)}>Start</button>
             <h1>Word count: ???</h1>
         </div>
     )
