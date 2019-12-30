@@ -3,7 +3,7 @@ import styles from "./styles.css"
 
 function App() {
     const [text, setText] = useState("")
-    const [timeRemaining, setTimeRemaining] = useState(5)
+    const [timeRemaining, setTimeRemaining] = useState(2)
     const [isTimeRunning, setIsTimeRunning] = useState(false)
     const [wordCount, setWordCount] = useState(0)
     
@@ -24,6 +24,7 @@ function App() {
             }, 1000)
         } else if(timeRemaining === 0) {
             setIsTimeRunning(false)
+            setWordCount(calculateWordCount(text))
         }
     }, [timeRemaining, isTimeRunning])
     
