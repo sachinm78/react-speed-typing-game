@@ -2,8 +2,10 @@ import React, {useState, useEffect} from "react"
 import styles from "./styles.css"
 
 function App() {
+    const STARTING_TIME = 15
+    
     const [text, setText] = useState("")
-    const [timeRemaining, setTimeRemaining] = useState(5)
+    const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME)
     const [isTimeRunning, setIsTimeRunning] = useState(false)
     const [wordCount, setWordCount] = useState(0)
     
@@ -19,7 +21,7 @@ function App() {
     
     function startGame() {
         setIsTimeRunning(true)
-        setTimeRemaining(5)
+        setTimeRemaining(STARTING_TIME)
         setText("")
     }
     
@@ -44,9 +46,15 @@ function App() {
             <textarea
                 onChange={handleChange}
                 value={text}
+                disabled={!isTimeRunning}
             />
             <h4>Time remaining: {timeRemaining}</h4>
-            <button onClick={startGame}>Start</button>
+            <button 
+                onClick={startGame}
+                disabled={isTimeRunning}
+            >
+                Start
+            </button>
             <h1>Word count: {wordCount}</h1>
         </div>
     )
