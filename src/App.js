@@ -21,8 +21,10 @@ function App() {
             setTimeout(() => {
                 setTimeRemaining(time => time - 1)
             }, 1000)
+        } else if(timeRemaining === 0) {
+            setIsTimeRunning(false)
         }
-    }, [timeRemaining])
+    }, [timeRemaining, isTimeRunning])
     
     return (
         <div>
@@ -32,7 +34,7 @@ function App() {
                 value={text}
             />
             <h4>Time remaining: {timeRemaining}</h4>
-            <button onClick={() => calculateWordCount(text)}>Start</button>
+            <button onClick={() => setIsTimeRunning(true)}>Start</button>
             <h1>Word count: ???</h1>
         </div>
     )
