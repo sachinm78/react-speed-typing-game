@@ -10,7 +10,7 @@ function App() {
     }
     
     function calculateWordCount(text) {
-        const wordsArr = text.split(" ")
+        const wordsArr = text.trim().split(" ")
         console.log(wordsArr.length)
         return wordsArr.length
     }
